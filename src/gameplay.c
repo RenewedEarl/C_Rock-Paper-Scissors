@@ -41,10 +41,8 @@ static int playerActionInput(char *prompt, char *buffer, size_t size)
 
 int generateOpponentAction(int min, int max)
 {
-    // Taking current time as seed
-    unsigned int seed = time(0);
     // Generate the action
-    int opponentActionNumber = rand_r(&seed) % (max - min + 1) + min;
+    int opponentActionNumber = rand() % (max - min + 1) + min;
 
     return opponentActionNumber;
 }
@@ -87,7 +85,7 @@ void game()
     if (player_character.action == 1 && opponent_character.action == 2)
     {
         printf("You have Rock and your opponent has Paper...\n");
-        player_character.winner == false;
+        player_character.winner = false;
     }
     else if (player_character.action == 1 && opponent_character.action == 3)
     {
